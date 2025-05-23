@@ -3,25 +3,23 @@ import torch
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 
-def save_checkpoint(state: dict, filename: str):
-    """Save model + optimizer state to disk."""
+def save_checkpoint(state, filename):
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     torch.save(state, filename)
 
 
-def load_checkpoint(filename: str, model: torch.nn.Module, optimizer: torch.optim.Optimizer = None):
-    """Load state dict into model (and optimizer if provided)."""
-    checkpoint = torch.load(filename, map_location=lambda storage, loc: storage)
-    model.load_state_dict(checkpoint['model_state'])
-    if optimizer is not None and 'optim_state' in checkpoint:
-        optimizer.load_state_dict(checkpoint['optim_state'])
-    return checkpoint.get('epoch', None)
+def load_checkpoint(path, model, optimizer=None):
+    chk = torch.load(path, map_location='cpu')
+    model.load_state_dict(chk['model_state'])
+    if optimizer and 'optim_state' in chk:
+        optimizer.load_state_dict(chk['optim_state'])
+    return chk.get('epoch', None)
 
 
-def compute_metrics(preds, targets, average='macro'):
-    """Compute basic classification metrics."""
-    acc = accuracy_score(targets, preds)
-    prec = precision_score(targets, preds, average=average, zero_division=0)
-    rec = recall_score(targets, preds, average=average, zero_division=0)
-    f1 = f1_score(targets, preds, average=average, zero_division=0)
-    return acc, prec, rec, f1
+def compute_metrics(preds, labels, average='macro'):
+    return (
+        accuracy_score(labels, preds),
+        precision_score(labels, preds, average=average, zero_division=0),
+        recall_score(labels, preds, average=average, zero_division=0),
+        f1_score(labels, preds, average=average, zero_division=0)
+    )
