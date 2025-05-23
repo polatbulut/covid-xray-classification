@@ -1,10 +1,8 @@
-```markdown
 # COVID-XRay Classification
 
 A PyTorch-based project to classify chest X-ray images into COVID-19, viral pneumonia, or normal categories using CNNs and transfer learning.
 
 ## Project Structure
-```
 ```
 covid-xray-classification/
 ├── .gitignore
