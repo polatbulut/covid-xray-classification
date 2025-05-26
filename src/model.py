@@ -28,3 +28,4 @@ def get_transfer_model(name, num_classes, pretrained=True):
     else:
         raise ValueError(f"Unsupported model: {name}")
     return m
+
