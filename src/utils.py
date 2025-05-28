@@ -23,4 +23,3 @@ def compute_metrics(preds, labels, average='macro'):
         recall_score(labels, preds, average=average, zero_division=0),
         f1_score(labels, preds, average=average, zero_division=0)
     )
-
