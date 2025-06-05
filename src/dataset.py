@@ -14,15 +14,15 @@ class XRayDataset(Dataset):
             cls_folder = os.path.join(root_dir, cls)
             for fname in os.listdir(cls_folder):
                 if fname.lower().endswith(('png', 'jpg', 'jpeg')):
-                    self.samples.append((os.path.join(cls_folder, fname), self.class_to_idx[cls]))
+                    path = os.path.join(cls_folder, fname)
+                    self.samples.append((path, self.class_to_idx[cls]))
 
     def __len__(self):
         return len(self.samples)
 
     def __getitem__(self, idx):
         path, label = self.samples[idx]
-        img = Image.open(path).convert('RGB')
+        img = Image.open(path).convert("RGB")
         if self.transform:
             img = self.transform(img)
         return img, label
-

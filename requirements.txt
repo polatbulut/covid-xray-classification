@@ -1,10 +1,9 @@
 torch
 torchvision
 torchaudio
-albumentations
 scikit-learn
 pandas
 matplotlib
 kaggle
+yaml
 tqdm
-
