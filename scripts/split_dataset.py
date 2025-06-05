@@ -13,7 +13,7 @@ RATIOS = {
 }
 
 # Adjust this to your actual “raw” folder
-RAW_DIR = Path('data/raw/COVID-19_Radiography_Database')
+RAW_DIR = Path('data/raw/covid19_radiography_dataset')
 TARGET_DIR = Path('data/processed')
 
 # These must exactly match the folder names under RAW_DIR
