@@ -1,5 +1,5 @@
 import argparse
-import yaml
+import yml
 import torch
 import torch.nn as nn
 from torch.optim import Adam
@@ -48,7 +48,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', required=True, help="Path to YAML config file")
     args = parser.parse_args()
-    cfg = yaml.safe_load(open(args.config))
+    cfg = yml.safe_load(open(args.config))
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 

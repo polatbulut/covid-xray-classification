@@ -1,5 +1,5 @@
 import argparse
-import yaml
+import yml
 import torch
 from torch.utils.data import DataLoader
 from torchvision import transforms
@@ -15,7 +15,7 @@ def main():
     parser.add_argument('--weights', required=True, help="Path to trained model checkpoint")
     args = parser.parse_args()
 
-    cfg = yaml.safe_load(open(args.config))
+    cfg = yml.safe_load(open(args.config))
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     # Build test transforms (no augmentation)
