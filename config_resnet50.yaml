@@ -12,7 +12,7 @@ model:
 training:
   batch_size: 16
   num_workers: 4
-  lr: 5e-5
+  lr: 0.00005
   epochs: 25
   patience: 4
   checkpoint_path: models/resnet50.pth

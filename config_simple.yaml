@@ -12,7 +12,7 @@ model:
 training:
   batch_size: 32
   num_workers: 4
-  lr: 1e-4
+  lr: 0.0001
   epochs: 20
   patience: 3
   checkpoint_path: models/simple_baseline.pth
