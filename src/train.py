@@ -96,6 +96,7 @@ def main():
     )
 
     # === Model setup ===
+
     num_classes = len(ds_train.classes)  # should be 4: ["COVID","Lung_Opacity","Normal","Viral Pneumonia"]
 
     if cfg['model']['type'].lower() == 'simple':
