@@ -51,6 +51,7 @@ def main():
     cfg = yaml.safe_load(open(args.config))
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print(f"Using device: {device}")
 
     augment_cfg = cfg['data'].get('augment', {})
 
