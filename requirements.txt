@@ -5,5 +5,5 @@ scikit-learn
 pandas
 matplotlib
 kaggle
-yml
+pyyaml
 tqdm
