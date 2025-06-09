@@ -7,15 +7,15 @@ class XRayDataset(Dataset):
         super().__init__()
         self.root_dir = root_dir
         self.transform = transform
-        self.classes = sorted([d.name for d in os.scandir(root_dir) if d.is_dir()])
+        self.classes = sorted(d.name for d in os.scandir(root_dir) if d.is_dir())
         self.class_to_idx = {cls: idx for idx, cls in enumerate(self.classes)}
+
         self.samples = []
         for cls in self.classes:
             cls_folder = os.path.join(root_dir, cls)
             for fname in os.listdir(cls_folder):
                 if fname.lower().endswith(('png', 'jpg', 'jpeg')):
-                    path = os.path.join(cls_folder, fname)
-                    self.samples.append((path, self.class_to_idx[cls]))
+                    self.samples.append((os.path.join(cls_folder, fname), self.class_to_idx[cls]))
 
     def __len__(self):
         return len(self.samples)
