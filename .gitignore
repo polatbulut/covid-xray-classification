@@ -1,7 +1,6 @@
 data/raw/
 data/processed/
 models/
-results/
 env/
 __pycache__/
 src/__pycache__/
