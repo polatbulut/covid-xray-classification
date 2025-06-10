@@ -31,12 +31,6 @@ class SimpleCNN(nn.Module):
 
 
 def get_transfer_model(name, num_classes, pretrained=True):
-    """
-    Supported:
-      - 'resnet50'
-      - 'densenet121'
-      - any timm model name like 'efficientnet_b3', 'resnet34', etc.
-    """
     name = name.lower()
     if name == 'resnet50':
         model = models.resnet50(pretrained=pretrained)

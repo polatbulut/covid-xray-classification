@@ -85,7 +85,6 @@ def main():
 
     num_classes = len(ds_train.classes)
 
-    # Compute class weights to counter imbalance
     counts = [sum(1 for _, l in ds_train.samples if l == i) for i in range(num_classes)]
     total = sum(counts)
     weights = [total / c for c in counts]

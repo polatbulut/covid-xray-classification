@@ -6,7 +6,6 @@ data:
   val_dir:   data/processed/val
   test_dir:  data/processed/test
 
-  # Strong augmentations
   augment:
     random_horizontal_flip: true
     random_rotation: 20

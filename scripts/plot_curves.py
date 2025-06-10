@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 
-# For config_resnet50_aug (30 epochs):
 epochs = list(range(1, 31))
 train_losses_resnet = [
     0.7579, 0.3017, 0.2432, 0.1931, 0.1764,
@@ -52,7 +51,6 @@ val_f1_eff = [
     0.9654, 0.9641, 0.9630, 0.9632, 0.9619,
     0.9611, 0.9601, 0.9612, 0.9598, 0.9630
 ]
-# --------------------------------------------
 
 # Plot Loss Curves
 plt.figure(figsize=(8,4))
