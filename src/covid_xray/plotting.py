@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Final
 
 import matplotlib
+from matplotlib.figure import Figure
 
 matplotlib.use("Agg")
 
@@ -27,7 +28,7 @@ LOGGER: Final = logging.getLogger(__name__)
 MisclassifiedSample = tuple[Path, int, int]
 
 
-def _save(figure: plt.Figure, path: Path) -> None:
+def _save(figure: Figure, path: Path) -> None:
     """Write a figure to ``path`` and close it."""
     path.parent.mkdir(parents=True, exist_ok=True)
     figure.tight_layout()

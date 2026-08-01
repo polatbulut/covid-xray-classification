@@ -82,7 +82,9 @@ def train_one_epoch(
             outputs: torch.Tensor = model(images)
             loss: torch.Tensor = criterion(outputs, labels)
 
-        scaler.scale(loss).backward()
+        # torch.Tensor.backward is unannotated upstream, so strict mode
+        # reports this as a call to an untyped function.
+        scaler.scale(loss).backward()  # type: ignore[no-untyped-call]
         if grad_clip is not None:
             scaler.unscale_(optimizer)
             nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
