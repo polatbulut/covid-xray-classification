@@ -25,13 +25,18 @@ class ClassificationMetrics:
     recall: float
     f1: float
 
-    def as_dict(self) -> dict[str, float]:
-        """Return the metrics as a JSON-serialisable mapping."""
+    def as_dict(self, *, prefix: str = "") -> dict[str, float]:
+        """Return the metrics as a JSON-serialisable mapping.
+
+        Args:
+            prefix: Prepended to every key. Pass ``"val_"`` to match the
+                vocabulary used by ``training.monitor``.
+        """
         return {
-            "accuracy": self.accuracy,
-            "precision": self.precision,
-            "recall": self.recall,
-            "f1": self.f1,
+            f"{prefix}accuracy": self.accuracy,
+            f"{prefix}precision": self.precision,
+            f"{prefix}recall": self.recall,
+            f"{prefix}f1": self.f1,
         }
 
     def format_summary(self) -> str:

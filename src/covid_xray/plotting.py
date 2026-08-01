@@ -16,11 +16,11 @@ import matplotlib
 
 matplotlib.use("Agg")
 
-import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
-from PIL import Image  # noqa: E402
+import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image
 
-from covid_xray.history import TrainingHistory  # noqa: E402
+from covid_xray.history import TrainingHistory
 
 LOGGER: Final = logging.getLogger(__name__)
 

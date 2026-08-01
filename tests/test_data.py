@@ -49,7 +49,7 @@ def test_sample_order_is_deterministic(image_root: Path) -> None:
 
 def test_explicit_class_order_is_honoured(image_root: Path) -> None:
     """Evaluation pins the checkpoint's class order onto the test split."""
-    reversed_classes = tuple(reversed(sorted(CLASS_NAMES)))
+    reversed_classes = tuple(sorted(CLASS_NAMES, reverse=True))
     dataset = XRayDataset(image_root, classes=reversed_classes)
     assert dataset.classes == reversed_classes
     assert dataset.class_to_idx[reversed_classes[0]] == 0

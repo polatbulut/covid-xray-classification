@@ -37,7 +37,7 @@ jobs:
         run: ruff check --output-format=github .
 
       - name: Ruff (format)
-        run: ruff format --check .
+        run: ruff format --diff .
 
       - name: mypy
         run: mypy

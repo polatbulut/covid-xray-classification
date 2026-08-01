@@ -266,7 +266,7 @@ def fit(
                     classes=classes,
                     model_state=model.state_dict(),
                     optimizer_state=optimizer.state_dict(),
-                    metrics={"val_loss": val_loss, **metrics.as_dict()},
+                    metrics={"val_loss": val_loss, **metrics.as_dict(prefix="val_")},
                 ),
                 training.checkpoint_path,
             )

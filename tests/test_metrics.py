@@ -75,3 +75,14 @@ def test_as_dict_and_summary() -> None:
         "f1": 0.375,
     }
     assert "accuracy=0.5000" in metrics.format_summary()
+
+
+def test_as_dict_accepts_a_prefix() -> None:
+    """Checkpoints store val_-prefixed keys so they match `training.monitor`."""
+    metrics = ClassificationMetrics(accuracy=0.5, precision=0.25, recall=0.75, f1=0.375)
+    assert set(metrics.as_dict(prefix="val_")) == {
+        "val_accuracy",
+        "val_precision",
+        "val_recall",
+        "val_f1",
+    }
