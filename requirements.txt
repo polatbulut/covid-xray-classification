@@ -1,9 +1,0 @@
-torch
-torchvision
-torchaudio
-scikit-learn
-pandas
-matplotlib
-kaggle
-pyyaml
-tqdm

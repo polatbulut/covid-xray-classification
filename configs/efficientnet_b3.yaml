@@ -1,0 +1,31 @@
+# EfficientNet-B3 via timm, at its native 300x300 input resolution.
+data:
+  train_dir: data/processed/train
+  val_dir: data/processed/val
+  test_dir: data/processed/test
+  img_size: [300, 300]
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+  augment:
+    random_horizontal_flip: true
+    random_rotation: 20
+    brightness_jitter: 0.2
+    contrast_jitter: 0.2
+
+model:
+  name: efficientnet_b3
+  pretrained: true
+
+training:
+  epochs: 30
+  batch_size: 8
+  num_workers: 4
+  lr: 0.00003
+  weight_decay: 0.0001
+  patience: 5
+  monitor: val_f1
+  class_weighting: inverse
+  pct_start: 0.1
+  anneal_strategy: cos
+  seed: 42
+  checkpoint_path: models/efficientnet_b3.pth
