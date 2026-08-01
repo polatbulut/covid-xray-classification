@@ -13,21 +13,22 @@ from pathlib import Path
 from typing import Final
 
 import matplotlib
+from matplotlib.figure import Figure
 
 matplotlib.use("Agg")
 
-import matplotlib.pyplot as plt  # noqa: E402
-import numpy as np  # noqa: E402
-from PIL import Image  # noqa: E402
+import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image
 
-from covid_xray.history import TrainingHistory  # noqa: E402
+from covid_xray.history import TrainingHistory
 
 LOGGER: Final = logging.getLogger(__name__)
 
 MisclassifiedSample = tuple[Path, int, int]
 
 
-def _save(figure: plt.Figure, path: Path) -> None:
+def _save(figure: Figure, path: Path) -> None:
     """Write a figure to ``path`` and close it."""
     path.parent.mkdir(parents=True, exist_ok=True)
     figure.tight_layout()
@@ -119,9 +120,7 @@ def plot_misclassified(
     for axis, (image_path, true_label, predicted_label) in zip(flat, selected, strict=False):
         with Image.open(image_path) as handle:
             axis.imshow(handle.convert("RGB"))
-        axis.set_title(
-            f"true: {classes[true_label]}\npred: {classes[predicted_label]}", fontsize=9
-        )
+        axis.set_title(f"true: {classes[true_label]}\npred: {classes[predicted_label]}", fontsize=9)
         axis.axis("off")
 
     # Hide the trailing axes of a partially filled final row.
