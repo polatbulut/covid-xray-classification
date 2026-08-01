@@ -41,9 +41,7 @@ def _add_run_arguments(parser: argparse.ArgumentParser) -> None:
         default=None,
         help="device override, e.g. cuda, cuda:1, mps or cpu (default: best available)",
     )
-    parser.add_argument(
-        "--no-progress", action="store_true", help="disable tqdm progress bars"
-    )
+    parser.add_argument("--no-progress", action="store_true", help="disable tqdm progress bars")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -96,9 +94,7 @@ def build_parser() -> argparse.ArgumentParser:
     split.add_argument("--val-ratio", type=float, default=0.15)
     split.add_argument("--test-ratio", type=float, default=0.15)
     split.add_argument("--seed", type=int, default=42)
-    split.add_argument(
-        "--link", action="store_true", help="symlink images instead of copying them"
-    )
+    split.add_argument("--link", action="store_true", help="symlink images instead of copying them")
     split.add_argument(
         "--overwrite", action="store_true", help="replace an existing, non-empty output directory"
     )

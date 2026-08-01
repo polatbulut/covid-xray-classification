@@ -119,9 +119,7 @@ def plot_misclassified(
     for axis, (image_path, true_label, predicted_label) in zip(flat, selected, strict=False):
         with Image.open(image_path) as handle:
             axis.imshow(handle.convert("RGB"))
-        axis.set_title(
-            f"true: {classes[true_label]}\npred: {classes[predicted_label]}", fontsize=9
-        )
+        axis.set_title(f"true: {classes[true_label]}\npred: {classes[predicted_label]}", fontsize=9)
         axis.axis("off")
 
     # Hide the trailing axes of a partially filled final row.

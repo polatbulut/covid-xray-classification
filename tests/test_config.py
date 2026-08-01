@@ -107,9 +107,7 @@ def test_invalid_training_values_are_rejected(
 
 
 @pytest.mark.parametrize("value", [[224], [224, 224, 3], "224", [0, 224]])
-def test_invalid_image_sizes_are_rejected(
-    config_mapping: dict[str, Any], value: object
-) -> None:
+def test_invalid_image_sizes_are_rejected(config_mapping: dict[str, Any], value: object) -> None:
     data = dict(config_mapping["data"])
     data["img_size"] = value
     config_mapping["data"] = data

@@ -81,9 +81,7 @@ def make_experiment(
     full loop end to end on 16x16 images in a couple of seconds.
     """
     for split in ("train", "val", "test"):
-        write_image_tree(
-            root / "data" / split, images_per_class=images_per_class, size=(16, 16)
-        )
+        write_image_tree(root / "data" / split, images_per_class=images_per_class, size=(16, 16))
     return ExperimentConfig(
         data=DataConfig(
             train_dir=root / "data" / "train",

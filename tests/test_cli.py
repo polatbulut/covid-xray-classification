@@ -25,9 +25,7 @@ def test_missing_subcommand_is_an_error() -> None:
     assert excinfo.value.code == 2
 
 
-@pytest.mark.parametrize(
-    "command", ["train", "evaluate", "split", "plot-history", "check-env"]
-)
+@pytest.mark.parametrize("command", ["train", "evaluate", "split", "plot-history", "check-env"])
 def test_every_subcommand_is_registered(command: str) -> None:
     parser = build_parser()
     args = parser.parse_args([command, *_minimal_args(command)])

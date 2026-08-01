@@ -351,9 +351,7 @@ class TrainingConfig:
             ),
             seed=_as_int(data.get("seed", 42), f"{section}.seed", minimum=0),
             history_path=(
-                None
-                if history_path is None
-                else _as_path(history_path, f"{section}.history_path")
+                None if history_path is None else _as_path(history_path, f"{section}.history_path")
             ),
         )
 
